@@ -1,0 +1,58 @@
+body{
+	    background-color: rgb(250, 250, 250);
+		font-family: Roboto,Helvetica Neue,Helvetica,Arial,PingFang TC,黑體-繁,Heiti TC,蘋果儷中黑,Apple LiGothic Medium,微軟正黑體,Microsoft JhengHei,sans-serif;
+}
+
+.maleIcon{
+    width: 40px;
+    height: 40px;
+	background: url(image/male.svg) no-repeat;
+}
+
+.femaleIcon{
+    width: 40px;
+    height: 40px;
+	background: url(image/female.svg) no-repeat;
+}
+
+.PostAuthorHeader{
+	position: relative;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 40px;
+    flex: 0 0 40px;
+    width: 100%;
+    height: 40px;
+    font-size: 40px;
+    line-height: 40px;
+    margin-right: 15px;
+	
+    margin-top: 10px;
+
+}
+
+.chatcontent{		
+    margin-left: 60px;
+    width: 100%;
+	color: #323232;
+    font-size: 18px;
+}
+
+.PostAuthorName{
+	position: relative;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 40px;
+    flex: 0 0 40px;
+    width: 100%;
+    height: 20px;
+    font-size: 40px;
+    line-height: 40px;
+    margin-right: 15px;
+	
+    margin-top: 10px;
+	
+	 margin-left: 60px;
+    width: 100%;
+	color: #a8a8a8;
+    font-size: 10px;
+
+}
