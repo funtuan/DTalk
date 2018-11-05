@@ -16,34 +16,27 @@ body{
 }
 
 .PostAuthorHeader{
-	position: relative;
-    -webkit-box-flex: 0;
     width: 100%;
-    height: 40px;
     font-size: 40px;
     line-height: 40px;
     margin-right: 15px;
 	
-    margin-top: 0px;
 
 }
 .container{
 	margin-left: 10px;
     margin-right: 10px;
+	margin-bottom: 80px;
 }
 .chatcontent{		
     width: 100%;
 	color: #323232;
-    font-size: 18px;
+    font-size: 16px;
     margin-left: 60px;
 	
 }
 
 .PostAuthorName{
-	position: relative;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 40px;
-    flex: 0 0 40px;
     width: 100%;
     height: 20px;
     font-size: 40px;
@@ -60,10 +53,6 @@ body{
 }
 
 .PostAuthorStatus{
-	position: relative;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 40px;
-    flex: 0 0 40px;
     width: 100%;
     height: 20px;
     font-size: 40px;

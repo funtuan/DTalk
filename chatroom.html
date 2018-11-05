@@ -8,7 +8,6 @@
 	<div id="app" class="container">
 	
 		
-		
 		<vuefor v-for="chat in chatJson">
 			<div v-bind:class="chat.className">
 				<message v-if="chat.type === 'status'">{{chat.content}}</message>
@@ -18,8 +17,6 @@
 				</div>
 			</div>
 		</vuefor>
-		
-	  
     </div>
 	
     <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark chatNavbar">
