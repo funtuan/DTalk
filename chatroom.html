@@ -5,71 +5,20 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-	<div id="app">
-	</div>
+	<div id="app" class="container">
 	
-	<div class="container">
-	
-		<div class="PostAuthorStatus">
-			中興大學185 加入聊天室
-		</div>
-	
-		<div class="PostAuthorName">
-			話多女子
-		</div>
 		
-		<div class="PostAuthorHeader">
-			<div class="chatcontent">
-				好想成為文章的主角……
+		
+		<vuefor v-for="chat in chatJson">
+			<div v-bind:class="chat.className">
+				<message v-if="chat.type === 'status'">{{chat.content}}</message>
+				<message v-if="chat.type === 'name'">{{chat.content}}</message>
+				<div v-if="chat.type === 'message'" class="chatcontent">
+					{{chat.content}}
+				</div>
 			</div>
-		</div>
-		<div class="PostAuthorHeader femaleIcon">
-			<div class="chatcontent">
-				可惜差少一個男主角(´･ω･`)
-			</div>
-		</div>
+		</vuefor>
 		
-		<div class="PostAuthorName">
-			中興大學185
-		</div>
-		
-		<div class="PostAuthorHeader maleIcon">
-			<div class="chatcontent">
-				找我？
-			</div>
-		</div>
-		
-		<div class="PostAuthorName">
-			話多女子
-		</div>
-		
-		<div class="PostAuthorHeader">
-			<div class="chatcontent">
-				好想成為文章的主角……
-			</div>
-		</div>
-		
-		<div class="PostAuthorHeader">
-			<div class="chatcontent">
-				好想成為文章的主角……
-			</div>
-		</div>
-		
-		<div class="PostAuthorHeader femaleIcon">
-			<div class="chatcontent">
-				可惜差少一個男主角(´･ω･`)
-			</div>
-		</div>
-		
-		<div class="PostAuthorName">
-			中興大學185
-		</div>
-		
-		<div class="PostAuthorHeader maleIcon">
-			<div class="chatcontent">
-				找我？
-			</div>
-		</div>
 	  
     </div>
 	
