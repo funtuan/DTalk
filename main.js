@@ -94,7 +94,11 @@ var app = new Vue({
 	}
 })
 
-
+if("name" in Cookies.get() && "icon" in Cookies.get()){
+	app.startCheck();
+	this.mispage = false;
+}
+	
 
 
 function stringBytes(c){
