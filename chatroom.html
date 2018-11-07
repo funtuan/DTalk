@@ -14,8 +14,27 @@
 	<div id="app" class="container">
 	
 		
+	
+		<div v-if="mispage" class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+		  
+
+		  <main role="main" class="inner cover">
+			<img class="mb-4" src="image/kzwPRNH.png" alt="" width="72" height="72">
+			<br>
+			<h4 class="cover-heading">{{mispageMessage}}</h4>
+			<br>
+			<p v-if="!sexSelectView" class="lead">
+				<input type="text" class="niname" v-on:keyup.enter="nameEnter" v-model="myname" placeholder="暱稱" required>
+			</p>
+			<p v-if="sexSelectView" class="lead">
+				<img class="mb-4" @click="sexSelectSet('male')" src="image/male.svg" alt="" width="72" height="72">
+				<img class="mb-4" @click="sexSelectSet('female')" src="image/female.svg" alt="" width="72" height="72">
+			</p>
+		  </main>
+
+		</div>
 		
-		<vuefor v-for="chat in chatJson">
+		<vuefor v-if="!mispage" v-for="chat in chatJson">
 			<div v-bind:class="chat.className">
 				<message v-if="chat.type === 'status'">{{chat.content}}</message>
 				<message v-if="chat.type === 'name'">{{chat.content}}</message>
@@ -25,7 +44,7 @@
 			</div>
 		</vuefor>
 	
-		<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark chatNavbar">
+		<nav v-if="!mispage" class="navbar fixed-bottom navbar-expand-sm navbar-dark chatNavbar">
 		  <a class="navbar-brand" href="#">DTalk</a>
 		  
 		  <input type="text" class="form-control" id="chat" v-model="message" v-on:keyup.enter="sellChat" placeholder="馬上加入聊天…" required>
@@ -34,6 +53,10 @@
 			<span class="navbar-toggler-icon"></span>
 		  </button>
 		</nav>
+		
+		<div v-show="errorView" class="fixed-bottom navbar-expand-sm navbar-dark alert alert-danger errorView" role="alert">
+		  <strong>錯誤： </strong> {{errorMessage}}
+		</div>
 	
     </div>
 	

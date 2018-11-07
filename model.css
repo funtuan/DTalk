@@ -72,3 +72,13 @@ body{
 .chatNavbar{
 	background-color: #5686BF;
 }
+
+.niname{
+	width: 200px;
+  text-align:center;
+}
+
+
+.errorView{
+    margin-bottom: 70px;
+}

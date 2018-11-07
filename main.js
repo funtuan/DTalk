@@ -17,6 +17,12 @@ if(!("userid" in Cookies.get())){
 var app = new Vue({
 	el: '#app',
 	data: {
+		mispage: true,
+		errorMessage: "",
+		errorView: false,
+		mispageMessage: "該怎麼稱呼呢？",
+		myname: "",
+		sexSelectView: false,
 		name: "No",
 		icon: "",
 		userid: "",
@@ -50,6 +56,13 @@ var app = new Vue({
 				
 			}
 			
+			function searchChat(){
+				roomChatUpdate(0,function(){
+					setTimeout(searchChat,1000);
+				});
+			}
+			searchChat();
+			
 		},
 		sellChat: function(){//發送訊息
 			if(stringBytes(this.message) > 0 && stringBytes(this.message) < 150){
@@ -57,21 +70,30 @@ var app = new Vue({
 				this.message = "";
 				console.log("訊息發送");
 			}
+		},
+		errorShow: function(Message){
+			this.errorMessage = Message;
+			this.errorView = true;
+			setTimeout(function(){app.errorView = false;},2000);
+		},
+		nameEnter: function(){
+			if(stringBytes(this.myname) >= 3 && stringBytes(this.myname) <= 20 ){
+				Cookies.set("name" , this.myname);
+				this.mispageMessage = "性別？";
+				this.sexSelectView = true;
+			}else{
+				this.errorShow("暱稱長度需介於3～20個字元");
+			}
+		},
+		sexSelectSet: function(sex){
+			console.log(sex);
+			Cookies.set("icon" , sex);
+			app.startCheck();
+			this.mispage = false;
 		}
 	}
 })
 
-setTimeout(function(){
-	Cookies.set("name" , "KP team根本沒關係");
-	Cookies.set("icon" , "female");
-	app.startCheck();
-	function searchChat(){
-		roomChatUpdate(0,function(){
-			setTimeout(searchChat,1000);
-		});
-	}
-	searchChat();
-},1000);
 
 
 
