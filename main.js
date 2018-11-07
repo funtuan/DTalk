@@ -34,7 +34,7 @@ var app = new Vue({
 		]
 	},
 	methods:{
-		startCheck: function(){
+		startCheck: function(){//讀取cookie 初始化
 			if("name" in Cookies.get()){
 				if(stringBytes(Cookies.get("name")) >= 3 && stringBytes(Cookies.get("name")) <= 20 ){
 					this.roomid = location.hash.substr(1,location.hash.length-1);
@@ -49,10 +49,12 @@ var app = new Vue({
 			}
 			
 		},
-		sellChat: function(){
-			sellMessage(0,this.message);
-			this.message = "";
-			console.log("OKa!");
+		sellChat: function(){//發送訊息
+			if(stringBytes(this.message) > 0 && stringBytes(this.message) < 150){
+				sellMessage(0,this.message);
+				this.message = "";
+				console.log("訊息發送");
+			}
 		}
 	}
 })
