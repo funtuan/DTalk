@@ -43,6 +43,7 @@ function viewDataupdate(json,callback){
 			}
 		}
 	}
+	document.documentElement.scrollTop = 1000000;
 	callback();
 }
 
@@ -66,7 +67,7 @@ function sellMessage(i,message){
 	});
 	app.chatLastUser = app.userid;
 	app.chatLastTime = new Date().getTime();
-	
+	document.documentElement.scrollTop = 1000000;
 	
 	var postJosn = {
 		name: app.name,
