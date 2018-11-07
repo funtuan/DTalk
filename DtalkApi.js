@@ -75,15 +75,20 @@ function sellMessage(i,message){
 		token: app.userid,
 		message: message
 	};
-	Vue.http.post('https://chat-circle.com/dtalk/chatSell/' + app.roomid, postJosn,{ emulateJSON: true }).then((response) => {
-		console.log(response.body);
-		viewDataupdate(response.body);
-	}, (response) => {
-		console.log("連接失敗重新嘗試");
-		if(i <= 3){
+	
+	function sellApi(i){
+	
+		Vue.http.post('https://chat-circle.com/dtalk/chatSell/' + app.roomid, postJosn,{ emulateJSON: true }).then((response) => {
 			
-		}else{
-			//callback();
-		}
-	});
+		}, (response) => {
+			console.log("連接失敗重新嘗試");
+			if(i <= 3){
+				sellApi(++i);
+			}else{
+				//callback();
+			}
+		});
+	
+	}
+	sellApi(0);
 }
