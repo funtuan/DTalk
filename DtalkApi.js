@@ -29,8 +29,8 @@ function viewDataupdate(json){
 			}
 			app.chatJson.push({
 				type: "message",
-				className: "PostAuthorHeader " + chat.icon + "Icon",
-				content: chat.message,
+				className: "PostAuthorHeader " + chat[i].icon + "Icon",
+				content: chat[i].message,
 				time: chat[i].time
 			});
 			app.chatLastUser = chat[i].articleId;
