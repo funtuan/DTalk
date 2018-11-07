@@ -19,6 +19,9 @@ var app = new Vue({
 	data: {
 		name: "",
 		userid: "",
+		roomid: "",
+		chatLastUser: "",
+		chatLastTime: "1541570700274",
 		setNameView: false,
 		chatJson: [{
 			type: "status",
@@ -85,6 +88,7 @@ var app = new Vue({
 	methods:{
 		startCheck:function(){
 			if(stringBytes(Cookies.get("name")) >= 3 && stringBytes(Cookies.get("name")) <= 20 ){
+				this.roomid = location.hash.substr(1,location.hash.length-1);
 				this.name = Cookies.get("name");
 				this.userid = Cookies.get("userid");
 			}else{
