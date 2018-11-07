@@ -68,7 +68,7 @@ function sellMessage(i,message){
 		time: new Date().getTime()
 	});
 	app.chatLastUser = app.userid;
-	app.chatLastTime = new Date().getTime();
+	//app.chatLastTime = new Date().getTime();
 	
 	var postJosn = {
 		name: app.name,
@@ -84,7 +84,7 @@ function sellMessage(i,message){
 			console.log(response.body);
 			
 			if(response.body.type == "error"){
-				app.errorShow(json.message);
+				app.errorShow(response.body.message);
 				app.chatJson.splice(app.chatJson.length-1, 1);
 			}
 			
