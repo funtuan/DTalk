@@ -77,9 +77,9 @@ function sellMessage(i,message){
 	};
 	
 	function sellApi(i){
-	
+		console.log(postJosn);
 		Vue.http.post('https://chat-circle.com/dtalk/chatSell/' + app.roomid, postJosn,{ emulateJSON: true }).then((response) => {
-			
+			console.log(response.body);
 		}, (response) => {
 			console.log("連接失敗重新嘗試");
 			if(i <= 3){
