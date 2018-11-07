@@ -21,7 +21,7 @@ function viewDataupdate(json,callback){
 	if(json.type == "roomchat"){
 		var chat = json.data;
 		for(var i = 0; i < chat.length; i++){
-			if(chat[i].articleId != app.userid){
+			if(chat[i].articleId != this.useridsha){
 				if(chat[i].articleId == app.chatLastUser){
 					app.chatJson[app.chatJson.length-1].className = "PostAuthorHeader";
 				}else{

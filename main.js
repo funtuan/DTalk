@@ -20,6 +20,7 @@ var app = new Vue({
 		name: "No",
 		icon: "",
 		userid: "",
+		useridsha: "",
 		roomid: "",
 		message: "",
 		chatLastUser: "",
@@ -41,6 +42,7 @@ var app = new Vue({
 					this.name = Cookies.get("name");
 					this.icon = Cookies.get("icon");
 					this.userid = Cookies.get("userid");
+					this.useridsha = sha1(this.userid);
 				}else{
 					
 				}
