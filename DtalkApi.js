@@ -46,7 +46,6 @@ function viewDataupdate(json,callback){
 	if(json.type == "error"){
 		app.errorShow(json.message);
 	}
-	document.body.scrollTop = 100000;
 	callback();
 }
 
@@ -81,17 +80,25 @@ function sellMessage(i,message){
 	function sellApi(i){
 		console.log(postJosn);
 		Vue.http.post('https://chat-circle.com/dtalk/chatSell/' + app.roomid, postJosn,{ emulateJSON: true }).then((response) => {
+			
 			console.log(response.body);
+			
+			if(response.body.type == "error"){
+				app.errorShow(json.message);
+				app.chatJson.splice(app.chatJson.length-1, 1);
+			}
+			
 		}, (response) => {
 			console.log("連接失敗重新嘗試");
 			if(i <= 3){
 				sellApi(++i);
 			}else{
+				app.errorShow("傳送訊息失敗");
+				app.chatJson.splice(app.chatJson.length-1, 1);
 				//callback();
 			}
 		});
 	
 	}
 	sellApi(0);
-	document.body.scrollTop = 100000;
 }

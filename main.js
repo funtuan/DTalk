@@ -93,7 +93,19 @@ var app = new Vue({
 			app.startCheck();
 			this.mispage = false;
 		}
-	}
+	},
+	watch: {
+	   chatJson() {
+		 console.log("chatlog change");
+		 this.$nextTick(() => {
+		   var container = this.$el.querySelector("#chatContainer");
+		   console.log(container);
+			document.body.scrollTop = 100000;
+		 })
+		 //  document.getElementById('chatContainer').scrollTop = document.getElementById('chatContainer').scrollHeight+150;
+
+	   }
+	 }
 })
 
 if("name" in Cookies.get() && "icon" in Cookies.get()){
