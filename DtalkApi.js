@@ -1,19 +1,23 @@
-function roomChatUpdate(i){
+function roomChatUpdate(i,callback){
 	
 	var postJosn = {
 		token: app.userid,
-		lasttime: "1541570700274"
+		lasttime: app.chatLastTime
 	};
 	Vue.http.post('https://chat-circle.com/dtalk/chatroom/' + app.roomid, postJosn,{ emulateJSON: true }).then((response) => {
 		console.log(response.body);
-		viewDataupdate(response.body);
+		viewDataupdate(response.body,callback);
 	}, (response) => {
 		console.log("連接失敗重新嘗試");
-		setTimeout(function(){roomChatUpdate(++i)},3000);
+		if(i <= 3){
+			setTimeout(function(){roomChatUpdate(++i)},3000);
+		}else{
+			callback();
+		}
 	});
 }
 
-function viewDataupdate(json){
+function viewDataupdate(json,callback){
 	if(json.type == "roomchat"){
 		var chat = json.data;
 		for(var i = 0; i < chat.length; i++){
@@ -37,4 +41,5 @@ function viewDataupdate(json){
 			app.chatLastTime = chat[i].time;
 		}
 	}
+	callback();
 }

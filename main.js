@@ -106,7 +106,15 @@ var app = new Vue({
 setTimeout(function(){
 	Cookies.set("name" , "KP team根本沒關係");
 	app.startCheck();
+	function searchChat(){
+		roomChatUpdate(0,function(){
+			setTimeout(searchChat,1000);
+		});
+	}
+	searchChat();
 },1000);
+
+
 
 function stringBytes(c){
   var n=c.length,s;
