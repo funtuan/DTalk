@@ -21,66 +21,12 @@ var app = new Vue({
 		userid: "",
 		roomid: "",
 		chatLastUser: "",
-		chatLastTime: "1541570700274",
+		chatLastTime: new Date().getTime().toString(),
 		setNameView: false,
 		chatJson: [{
 			type: "status",
 			className: "PostAuthorStatus",
-			content: "中興大學183 加入聊天室",
-			time: new Date()
-		},
-		{
-			type: "name",
-			className: "PostAuthorName",
-			content: "話多女子 is Myname",
-			time: new Date()
-		},
-		{
-			type: "message",
-			className: "PostAuthorHeader",
-			content: "我要講一大堆話我要講一大堆話我要講一大堆話我要講一大堆話我要講一大堆話我要講一大堆話我要講一大堆話我要講一大堆話我要講一大堆話我要講一大堆話我要講一大堆話我要講一大堆話",
-			time: new Date()
-		},
-		{
-			type: "message",
-			className: "PostAuthorHeader femaleIcon",
-			content: "2.可惜差少一個男主角(´･ω･`)",
-			time: new Date()
-		},
-		{
-			type: "name",
-			className: "PostAuthorName",
-			content: "東吳男子",
-			time: new Date()
-		},
-		{
-			type: "message",
-			className: "PostAuthorHeader",
-			content: "!!!!",
-			time: new Date()
-		},
-		{
-			type: "message",
-			className: "PostAuthorHeader maleIcon",
-			content: "XDDD",
-			time: new Date()
-		},
-		{
-			type: "name",
-			className: "PostAuthorName",
-			content: "話多女子 is Myname",
-			time: new Date()
-		},
-		{
-			type: "message",
-			className: "PostAuthorHeader",
-			content: "1.好想成為文章的主角……",
-			time: new Date()
-		},
-		{
-			type: "message",
-			className: "PostAuthorHeader femaleIcon",
-			content: "2.可惜差少一個男主角(´･ω･`)",
+			content: "打開 DTalk 奇遇之旅",
 			time: new Date()
 		}
 		]
