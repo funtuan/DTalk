@@ -69,6 +69,8 @@ var app = new Vue({
 				sellMessage(0,this.message);
 				this.message = "";
 				console.log("訊息發送");
+			}else{
+				if(stringBytes(this.message) > 0)this.errorShow("訊息長度需在150個字元以內");
 			}
 		},
 		errorShow: function(Message){

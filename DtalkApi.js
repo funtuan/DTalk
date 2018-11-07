@@ -5,7 +5,7 @@ function roomChatUpdate(i,callback){
 		lasttime: app.chatLastTime
 	};
 	Vue.http.post('https://chat-circle.com/dtalk/chatroom/' + app.roomid, postJosn,{ emulateJSON: true }).then((response) => {
-		console.log(response.body);
+		//console.log(response.body);
 		viewDataupdate(response.body,callback);
 	}, (response) => {
 		console.log("連接失敗重新嘗試");
