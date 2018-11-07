@@ -43,6 +43,9 @@ function viewDataupdate(json,callback){
 			}
 		}
 	}
+	if(json.type == "error"){
+		app.errorShow(json.message);
+	}
 	document.documentElement.scrollTop = 1000000;
 	callback();
 }
