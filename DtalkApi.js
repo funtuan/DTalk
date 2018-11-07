@@ -1,9 +1,10 @@
 function roomChatUpdate(i){
+	
 	var postJosn = {
 		token: app.userid,
 		lasttime: "1541570700274"
 	};
-	Vue.http.post('https://chat-circle.com/dtalk/chatroom/' + app.roomid,postJosn).then((response) => {
+	Vue.http.post('https://chat-circle.com/dtalk/chatroom/' + app.roomid,postJosn,{ emulateJSON: true }).then((response) => {
 		console.log(response.body);
 		viewDataupdate(response.body);
 	}, (response) => {
