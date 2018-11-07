@@ -10,7 +10,7 @@ function roomChatUpdate(i,callback){
 	}, (response) => {
 		console.log("連接失敗重新嘗試");
 		if(i <= 3){
-			setTimeout(function(){roomChatUpdate(++i)},3000);
+			setTimeout(function(){roomChatUpdate(++i,callback)},3000);
 		}else{
 			//callback();
 		}
