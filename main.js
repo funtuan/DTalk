@@ -17,7 +17,7 @@ if(!("userid" in Cookies.get())){
 var app = new Vue({
 	el: '#app',
 	data: {
-		name: "",
+		name: "No",
 		userid: "",
 		roomid: "",
 		chatLastUser: "",
@@ -87,16 +87,26 @@ var app = new Vue({
 	},
 	methods:{
 		startCheck:function(){
-			if(stringBytes(Cookies.get("name")) >= 3 && stringBytes(Cookies.get("name")) <= 20 ){
-				this.roomid = location.hash.substr(1,location.hash.length-1);
-				this.name = Cookies.get("name");
-				this.userid = Cookies.get("userid");
+			if("name" in Cookies.get()){
+				if(stringBytes(Cookies.get("name")) >= 3 && stringBytes(Cookies.get("name")) <= 20 ){
+					this.roomid = location.hash.substr(1,location.hash.length-1);
+					this.name = Cookies.get("name");
+					this.userid = Cookies.get("userid");
+				}else{
+					
+				}
 			}else{
 				
 			}
+			
 		}
 	}
 })
+
+setTimeout(function(){
+	Cookies.set("name" , "KP team根本沒關係");
+	app.startCheck();
+},1000);
 
 function stringBytes(c){
   var n=c.length,s;

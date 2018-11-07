@@ -4,7 +4,7 @@ function roomChatUpdate(i){
 		token: app.userid,
 		lasttime: "1541570700274"
 	};
-	Vue.http.post('https://chat-circle.com/dtalk/chatroom/' + app.roomid,postJosn,{ emulateJSON: true }).then((response) => {
+	Vue.http.post('https://chat-circle.com/dtalk/chatroom/' + app.roomid, postJosn,{ emulateJSON: true }).then((response) => {
 		console.log(response.body);
 		viewDataupdate(response.body);
 	}, (response) => {
@@ -29,7 +29,7 @@ function viewDataupdate(json){
 			}
 			app.chatJson.push({
 				type: "message",
-				className: "PostAuthorHeader " + chatJson.icon + "Icon",
+				className: "PostAuthorHeader " + chat.icon + "Icon",
 				content: chatJson.message,
 				time: chat[i].time
 			});
