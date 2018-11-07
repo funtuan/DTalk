@@ -17,7 +17,9 @@ if(!("userid" in Cookies.get())){
 var app = new Vue({
 	el: '#app',
 	data: {
-	
+		name: "",
+		userid: "",
+		setNameView: false,
 		chatJson: [{
 			type: "status",
 			className: "PostAuthorStatus",
@@ -79,5 +81,28 @@ var app = new Vue({
 			time: new Date()
 		}
 		]
+	},
+	methods:{
+		startCheck:function(){
+			if(stringBytes(Cookies.get("name")) >= 3 && stringBytes(Cookies.get("name")) <= 20 ){
+				this.name = Cookies.get("name");
+				this.userid = Cookies.get("userid");
+			}else{
+				
+			}
+		}
 	}
 })
+
+function stringBytes(c){
+  var n=c.length,s;
+  var len=0;
+  for(var i=0; i <n;i++){
+   s=c.charCodeAt(i);
+   while( s > 0 ){
+	  len++;
+	  s = s >> 8;
+   }
+  }
+  return len;
+}
