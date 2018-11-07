@@ -12,7 +12,7 @@ function roomChatUpdate(i,callback){
 		if(i <= 3){
 			setTimeout(function(){roomChatUpdate(++i)},3000);
 		}else{
-			callback();
+			//callback();
 		}
 	});
 }
@@ -42,4 +42,24 @@ function viewDataupdate(json,callback){
 		}
 	}
 	callback();
+}
+
+function sellMessage(i,message){
+	var postJosn = {
+		name: app.name,
+		icon: app.icon,
+		token: app.userid,
+		message: message
+	};
+	Vue.http.post('https://chat-circle.com/dtalk/chatSell/' + app.roomid, postJosn,{ emulateJSON: true }).then((response) => {
+		console.log(response.body);
+		viewDataupdate(response.body,callback);
+	}, (response) => {
+		console.log("連接失敗重新嘗試");
+		if(i <= 3){
+			
+		}else{
+			//callback();
+		}
+	});
 }

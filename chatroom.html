@@ -21,17 +21,18 @@
 				</div>
 			</div>
 		</vuefor>
-    </div>
 	
-    <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark chatNavbar">
-      <a class="navbar-brand" href="#">DTalk</a>
-	  
-	  <input type="text" class="form-control" id="chat" placeholder="馬上加入聊天…" required>
-	  
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </nav>
+		<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark chatNavbar">
+		  <a class="navbar-brand" href="#">DTalk</a>
+		  
+		  <input type="text" class="form-control" id="chat" v-model="message" v-on:keyup.enter="sellChat" placeholder="馬上加入聊天…" required>
+		  
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		</nav>
+	
+    </div>
 	
 	<script src="main.js"></script>
 </body>

@@ -18,8 +18,10 @@ var app = new Vue({
 	el: '#app',
 	data: {
 		name: "No",
+		icon: "",
 		userid: "",
 		roomid: "",
+		message: "",
 		chatLastUser: "",
 		chatLastTime: new Date().getTime().toString(),
 		setNameView: false,
@@ -32,11 +34,12 @@ var app = new Vue({
 		]
 	},
 	methods:{
-		startCheck:function(){
+		startCheck: function(){
 			if("name" in Cookies.get()){
 				if(stringBytes(Cookies.get("name")) >= 3 && stringBytes(Cookies.get("name")) <= 20 ){
 					this.roomid = location.hash.substr(1,location.hash.length-1);
 					this.name = Cookies.get("name");
+					this.icon = Cookies.get("icon");
 					this.userid = Cookies.get("userid");
 				}else{
 					
@@ -45,12 +48,18 @@ var app = new Vue({
 				
 			}
 			
+		},
+		sellChat: function(){
+			sellMessage(0,this.message);
+			this.message = "";
+			console.log("OKa!");
 		}
 	}
 })
 
 setTimeout(function(){
 	Cookies.set("name" , "KP team根本沒關係");
+	Cookies.set("icon" , "female");
 	app.startCheck();
 	function searchChat(){
 		roomChatUpdate(0,function(){
