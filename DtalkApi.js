@@ -70,7 +70,7 @@ function sellMessage(i,message){
 	});
 	app.chatLastUser = app.userid;
 	app.chatLastTime = new Date().getTime();
-	document.documentElement.scrollTop = 1000000;
+	document.body.scrollTop = 100000;
 	
 	var postJosn = {
 		name: app.name,
