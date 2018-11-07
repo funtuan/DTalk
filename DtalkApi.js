@@ -21,7 +21,7 @@ function viewDataupdate(json,callback){
 	if(json.type == "roomchat"){
 		var chat = json.data;
 		for(var i = 0; i < chat.length; i++){
-			if(chat[i].articleId != this.useridsha){
+			if(chat[i].articleId != app.useridsha){
 				if(chat[i].articleId == app.chatLastUser){
 					app.chatJson[app.chatJson.length-1].className = "PostAuthorHeader";
 				}else{
@@ -76,7 +76,7 @@ function sellMessage(i,message){
 	};
 	Vue.http.post('https://chat-circle.com/dtalk/chatSell/' + app.roomid, postJosn,{ emulateJSON: true }).then((response) => {
 		console.log(response.body);
-		viewDataupdate(response.body,callback);
+		viewDataupdate(response.body);
 	}, (response) => {
 		console.log("連接失敗重新嘗試");
 		if(i <= 3){
