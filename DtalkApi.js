@@ -82,7 +82,6 @@ function sellMessage(i,message){
 		console.log(postJosn);
 		Vue.http.post('https://chat-circle.com/dtalk/chatSell/' + app.roomid, postJosn,{ emulateJSON: true }).then((response) => {
 			console.log(response.body);
-			document.body.scrollTop = 100000;
 		}, (response) => {
 			console.log("連接失敗重新嘗試");
 			if(i <= 3){
@@ -94,4 +93,5 @@ function sellMessage(i,message){
 	
 	}
 	sellApi(0);
+	document.body.scrollTop = 100000;
 }
