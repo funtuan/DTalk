@@ -49,7 +49,7 @@ function viewDataupdate(json,callback){
 			if(chat[i].type == "status"){
 				app.chatJson.push({
 					type: "status",
-					className: "PostAuthorHeader",
+					className: "PostAuthorStatu",
 					content: chat[i].message,
 					time: chat[i].time
 				});
