@@ -26,7 +26,7 @@ function viewDataupdate(json,callback){
 		var chat = json.data;
 		for(var i = 0; i < chat.length; i++){
 			if(chat[i].type == "message"){	
-				if(chat[i].articleId != app.useridsha){
+				if(chat[i].articleId != app.useridsha || sellMessageList.indexOf(chat[i].message) == -1){
 					if(chat[i].articleId == app.chatLastUser){
 						app.chatJson[app.chatJson.length-1].className = "PostAuthorHeader";
 					}else{
@@ -64,8 +64,9 @@ function viewDataupdate(json,callback){
 	}
 	callback();
 }
-
+var sellMessageList = new Array();
 function sellMessage(i,message){
+	sellMessageList.push(message);
 	
 	if(app.userid == app.chatLastUser){
 		app.chatJson[app.chatJson.length-1].className = "PostAuthorHeader";
