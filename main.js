@@ -70,7 +70,7 @@ var app = new Vue({
 			if(stringBytes(this.message) > 0 && stringBytes(this.message) < 150){
 				sellMessage(0,this.message);
 				this.message = "";
-				console.log("訊息發送");
+				//console.log("訊息發送");
 			}else{
 				if(stringBytes(this.message) > 0)this.errorShow("訊息長度需在150個字元以內");
 			}
@@ -90,7 +90,7 @@ var app = new Vue({
 			}
 		},
 		sexSelectSet: function(sex){
-			console.log(sex);
+			//console.log(sex);
 			Cookies.set("icon" , sex);
 			app.startCheck();
 			this.mispage = false;
@@ -106,10 +106,10 @@ var app = new Vue({
 	},
 	watch: {
 	   chatJson() {
-		 console.log("chatlog change");
+		 //console.log("chatlog change");
 		 this.$nextTick(() => {
 		   var container = this.$el.querySelector("#chatContainer");
-		   console.log(container);
+		   //console.log(container);
 			document.body.scrollTop = 100000;
 		 })
 		 //  document.getElementById('chatContainer').scrollTop = document.getElementById('chatContainer').scrollHeight+150;
