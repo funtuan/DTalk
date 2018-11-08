@@ -24,7 +24,7 @@
 		  
 
 		  <main role="main" class="inner cover">
-			<img class="mb-4" src="image/kzwPRNH.png" alt="" width="72" height="72">
+			<img class="mb-4" src="image/password2.png" alt="" width="72" height="72">
 			<br>
 			<h4 class="cover-heading">{{mispageMessage}}</h4>
 			<br>
@@ -49,8 +49,8 @@
 			</div>
 		</vuefor>
 	
-		<nav v-if="!mispage" class="navbar fixed-bottom navbar-expand-sm navbar-dark chatNavbar">
-		  <a class="navbar-brand" href="#"><img src="image/loader2.gif" alt="Italian Trulli"></a>
+		<nav v-if="!mispage && !setting" class="navbar fixed-bottom navbar-expand-sm navbar-dark chatNavbar">
+		  <a class="navbar-brand" v-on:click="setbutton"><img src="image/loader2.gif" alt="Italian Trulli"></a>
 		  
 		  <input type="text" class="form-control" id="chat" v-model="message" v-on:keyup.enter="sellChat" placeholder="馬上加入聊天…" required>
 		  <div class="navset">●online：{{online}}</div>
@@ -59,9 +59,20 @@
 		  </button>
 		</nav>
 		
+		<nav v-if="!mispage && setting"  class="navbar fixed-bottom navbar-expand-sm navbar-dark chatNavbar">
+		  <a class="navbar-brand" v-on:click="setbutton"><img src="image/loader1.gif" alt="Italian Trulli"></a>
+		  <div class="resetdiv"><button v-on:click="resetuser" type="button" class="btn btn-lg btn-block btn-primary resetbutton">重設帳號</button></div>
+		  <div class="navset">●online：{{online}}</div>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		</nav>
+		
+		
 		<div v-show="errorView" class="fixed-bottom navbar-expand-sm navbar-dark alert alert-danger errorView" role="alert">
 		  <strong>錯誤： </strong> {{errorMessage}}
 		</div>
+		
 	
     </div>
 	

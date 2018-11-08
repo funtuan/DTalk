@@ -88,3 +88,12 @@ body{
 	text-align:center;
 	color: #16982B;
 }
+.resetbutton{
+    font-size: 12px;
+	width: 150px;
+    margin-left: 30px;
+}
+.resetdiv{
+	width: 100%;
+	text-align:center;
+}

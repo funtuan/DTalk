@@ -17,6 +17,7 @@ if(!("userid" in Cookies.get())){
 var app = new Vue({
 	el: '#app',
 	data: {
+		setting: false,
 		online: 0,
 		mispage: true,
 		errorMessage: "",
@@ -93,6 +94,14 @@ var app = new Vue({
 			Cookies.set("icon" , sex);
 			app.startCheck();
 			this.mispage = false;
+		},
+		setbutton: function(){
+			this.setting = !this.setting;
+		},
+		resetuser: function(){
+			Cookies.remove('name');
+			Cookies.remove('icon');
+			window.location.reload();
 		}
 	},
 	watch: {
