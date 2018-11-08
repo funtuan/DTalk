@@ -1,10 +1,13 @@
+const Domain = "chat-circle.com";
+
 function roomChatUpdate(i,callback){
 	
 	var postJosn = {
+		name: app.name,
 		token: app.userid,
 		lasttime: app.chatLastTime
 	};
-	Vue.http.post('https://chat-circle.com/dtalk/chatroom/' + app.roomid, postJosn,{ emulateJSON: true }).then((response) => {
+	Vue.http.post('https://' + Domain + '/dtalk/chatroom/' + app.roomid, postJosn,{ emulateJSON: true }).then((response) => {
 		//console.log(response.body);
 		viewDataupdate(response.body,callback);
 	}, (response) => {
@@ -79,7 +82,7 @@ function sellMessage(i,message){
 	
 	function sellApi(i){
 		console.log(postJosn);
-		Vue.http.post('https://chat-circle.com/dtalk/chatSell/' + app.roomid, postJosn,{ emulateJSON: true }).then((response) => {
+		Vue.http.post('https://' + Domain + '/dtalk/chatSell/' + app.roomid, postJosn,{ emulateJSON: true }).then((response) => {
 			
 			console.log(response.body);
 			
