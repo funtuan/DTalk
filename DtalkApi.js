@@ -21,6 +21,7 @@ function roomChatUpdate(i,callback){
 }
 
 function viewDataupdate(json,callback){
+	app.online = json.online;
 	if(json.type == "roomchat"){
 		var chat = json.data;
 		for(var i = 0; i < chat.length; i++){

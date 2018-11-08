@@ -82,3 +82,9 @@ body{
 .errorView{
     margin-bottom: 70px;
 }
+
+.navset{
+	width: 150px;
+	text-align:center;
+	color: #16982B;
+}

@@ -17,6 +17,7 @@ if(!("userid" in Cookies.get())){
 var app = new Vue({
 	el: '#app',
 	data: {
+		online: 0,
 		mispage: true,
 		errorMessage: "",
 		errorView: false,
