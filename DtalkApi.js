@@ -24,24 +24,36 @@ function viewDataupdate(json,callback){
 	if(json.type == "roomchat"){
 		var chat = json.data;
 		for(var i = 0; i < chat.length; i++){
-			if(chat[i].articleId != app.useridsha){
-				if(chat[i].articleId == app.chatLastUser){
-					app.chatJson[app.chatJson.length-1].className = "PostAuthorHeader";
-				}else{
+			if(chat[i].type == "message"){	
+				if(chat[i].articleId != app.useridsha){
+					if(chat[i].articleId == app.chatLastUser){
+						app.chatJson[app.chatJson.length-1].className = "PostAuthorHeader";
+					}else{
+						app.chatJson.push({
+							type: "name",
+							className: "PostAuthorName",
+							content: chat[i].name,
+							time: chat[i].time
+						});
+					}
 					app.chatJson.push({
-						type: "name",
-						className: "PostAuthorName",
-						content: chat[i].name,
+						type: "message",
+						className: "PostAuthorHeader " + chat[i].icon + "Icon",
+						content: chat[i].message,
 						time: chat[i].time
 					});
+					app.chatLastUser = chat[i].articleId;
+					app.chatLastTime = chat[i].time;
 				}
+			}
+			if(chat[i].type == "status"){
 				app.chatJson.push({
-					type: "message",
-					className: "PostAuthorHeader " + chat[i].icon + "Icon",
+					type: "status",
+					className: "PostAuthorHeader",
 					content: chat[i].message,
 					time: chat[i].time
 				});
-				app.chatLastUser = chat[i].articleId;
+				app.chatLastUser = "statusMessage";
 				app.chatLastTime = chat[i].time;
 			}
 		}
