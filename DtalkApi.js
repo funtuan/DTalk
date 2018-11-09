@@ -1,4 +1,4 @@
-const Domain = "chat-circle.com";
+const Domain = "dtalk.chat-circle.com";
 
 function roomChatUpdate(i,callback){
 	
