@@ -98,6 +98,10 @@ body{
 	text-align:center;
 }
 
+a{
+	color: #003366;
+}
+
 [v-cloak] {
         display: none;
     }

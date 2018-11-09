@@ -57,6 +57,7 @@
 				<message v-if="chat.type === 'name'">{{chat.content}}</message>
 				<div v-if="chat.type === 'message'" class="chatcontent">
 					<a v-if="chat.content.substr(0,1) == '#'" v-bind:href="'https://funtuan.github.io/DTalk/chatroom.html#' + chat.content.substr(1,40)" target="_blank" >{{chat.content}}</a>
+					<message v-if="chat.content.substr(0,1) != '#'">{{chat.content}}</message>
 				</div>
 			</div>
 		</vuefor>
