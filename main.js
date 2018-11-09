@@ -44,6 +44,13 @@ var app = new Vue({
 	},
 	methods:{
 		startCheck: function(){//讀取cookie 初始化
+			
+			const startmessage = [
+			"貼心小提示：左下角那個會動的東西是功能鍵喔！！",
+			"貼心小提示：輸入#加數字就能開小房間喔（範例:#123456)"
+			]
+			this.chatJson[0].content = startmessage[Math.floor(startmessage.length * Math.random())];
+			
 			if("name" in Cookies.get()){
 				if(stringBytes(Cookies.get("name")) >= 3 && stringBytes(Cookies.get("name")) <= 20 ){
 					this.roomid = location.hash.substr(1,location.hash.length-1);
