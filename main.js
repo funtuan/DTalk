@@ -37,7 +37,7 @@ var app = new Vue({
 		chatJson: [{
 			type: "status",
 			className: "PostAuthorStatus",
-			content: "打開 DTalk 奇遇之旅",
+			content: "貼心小提示：左下角那個會動的東西是功能鍵喔！！",
 			time: new Date()
 		}
 		]
