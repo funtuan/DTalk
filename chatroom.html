@@ -28,7 +28,7 @@
 	
 </head>
 <body>
-	<div id="app" class="container">
+	<div id="app" class="container" v-cloak>
 	
 		
 	
@@ -73,7 +73,8 @@
 		
 		<nav v-if="!mispage && setting"  class="navbar fixed-bottom navbar-expand-sm navbar-dark chatNavbar">
 		  <a class="navbar-brand" v-on:click="setbutton"><img src="image/loader1.gif" alt="Italian Trulli"></a>
-		  <div class="resetdiv"><button v-on:click="resetuser" type="button" class="btn btn-lg btn-block btn-primary resetbutton">重設帳號</button></div>
+		  <div class="resetdiv"><button v-on:click="openurl" type="button" class="btn btn-lg btn-block btn-primary resetbutton">打開網頁</button></div>
+		  <div class="resetdiv"><button v-on:click="resetuser" type="button" class="btn btn-lg btn-block btn-danger resetbutton">重設帳號</button></div>
 		  <div class="navset">●online：{{online}}</div>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>

@@ -102,6 +102,9 @@ var app = new Vue({
 			Cookies.remove('name');
 			Cookies.remove('icon');
 			window.location.reload();
+		},
+		openurl: function(){
+			window.open('https://funtuan.github.io/DTalk/chatroom.html#' + this.roomid);
 		}
 	},
 	watch: {

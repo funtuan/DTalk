@@ -97,3 +97,7 @@ body{
 	width: 100%;
 	text-align:center;
 }
+
+[v-cloak] {
+        display: none;
+    }
